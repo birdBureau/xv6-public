@@ -7,6 +7,8 @@
 #include "mmu.h"
 #include "proc.h"
 
+int pidcount = 0; // storage for the counter that keeps track of getpid syscalls since start.
+
 int
 sys_fork(void)
 {
@@ -39,6 +41,7 @@ sys_kill(void)
 int
 sys_getpid(void)
 {
+  pidcount++; // increments the counter whenever this function is called.
   return myproc()->pid;
 }
 
@@ -88,4 +91,11 @@ sys_uptime(void)
   xticks = ticks;
   release(&tickslock);
   return xticks;
+}
+
+// return the current value of the counter.
+int
+sys_getpidcount(void)
+{
+  return pidcount;
 }

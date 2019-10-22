@@ -174,6 +174,8 @@ UPROGS=\
 	_kill\
 	_ln\
 	_ls\
+	_pidintro\
+	_pidcounter\
 	_mkdir\
 	_rm\
 	_sh\
