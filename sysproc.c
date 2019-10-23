@@ -3,6 +3,7 @@
 #include "defs.h"
 #include "date.h"
 #include "param.h"
+#include "pstat.h"
 #include "memlayout.h"
 #include "mmu.h"
 #include "proc.h"
@@ -88,4 +89,28 @@ sys_uptime(void)
   xticks = ticks;
   release(&tickslock);
   return xticks;
+}
+
+int
+sys_settickets(void)
+{
+  int number;
+  if (argint(0, &number) < 0){
+    return -1;
+  }
+  else {
+    return settickets(number);
+  }
+  // return 0;
+}
+
+int
+sys_getpinfo(void)
+{
+  struct pstat *pinfo;
+  if(argptr(0, (void *)&pinfo, sizeof(*pinfo)) < 0){
+    return -1;
+  }
+  getpinfo(pinfo);
+  return 0;
 }

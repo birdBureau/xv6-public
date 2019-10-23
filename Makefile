@@ -174,6 +174,8 @@ UPROGS=\
 	_kill\
 	_ln\
 	_ls\
+	_tickettest\
+	_ps\
 	_mkdir\
 	_rm\
 	_sh\
