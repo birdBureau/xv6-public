@@ -416,12 +416,10 @@ getpinfo(struct pstat* pinfo) {
       else {
         pinfo->inuse[i] = 1;
       }
-
+      pinfo->pid[i] = p->pid;
       pinfo->tickets[i] = p->tickets;
       pinfo->ticks[i] = p->ticks;
       i++;
-      // Process is done running for now.
-      // It should have changed its p->state before coming back.
     }
   release(&ptable.lock);
   return 0;

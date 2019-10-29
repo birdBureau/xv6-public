@@ -13,7 +13,9 @@ main() {
     int i;
 
     for(i = 0; i < NPROC; i++){
-        printf(1, "IN USE: %d PID: %d TICKETS: %d TICKS: %d \n", pinfo.inuse[i], pinfo.pid[i], pinfo.tickets[i], pinfo.ticks[i]);
+        if(!pinfo.inuse[i] && pinfo.tickets[i] != 0){
+            printf(1, "IN USE: %d PID: %d TICKETS: %d TICKS: %d \n", pinfo.inuse[i], pinfo.pid[i], pinfo.tickets[i], pinfo.ticks[i]);
+        }
     }
 
     return 0;

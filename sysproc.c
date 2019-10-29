@@ -98,10 +98,8 @@ sys_settickets(void)
   if (argint(0, &number) < 0){
     return -1;
   }
-  else {
-    return settickets(number);
-  }
-  // return 0;
+  settickets(number);
+  return 0;
 }
 
 int
