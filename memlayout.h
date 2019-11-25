@@ -2,6 +2,7 @@
 
 #define EXTMEM  0x100000            // Start of extended memory
 #define PHYSTOP 0xE000000           // Top physical memory
+#define USERTOP  0xA0000            // end of user address space
 #define DEVSPACE 0xFE000000         // Other devices are at high addresses
 
 // Key addresses for address space layout (see kmap in vm.c for layout)
